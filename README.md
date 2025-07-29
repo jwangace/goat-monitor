@@ -1,3 +1,7 @@
+# App Quick Overview
+
+Check [https://goat-monitor.onrender.com/](https://goat-monitor.onrender.com/) which is hosted on onrender.com using the free tier. Due to inactivity, it may take up to a minute for the application to spin up when you visit the link, please be patient while it loads!
+
 # Building and Running the Docker Image Locally
 
 To build the Docker image for `goat-monitor`, execute:
