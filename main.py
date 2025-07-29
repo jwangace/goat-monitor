@@ -162,7 +162,7 @@ def home():
         }
 
         fetchStatus();
-        setInterval(fetchStatus, 5000);
+        setInterval(fetchStatus, 1000);
     </script>
 </body>
 </html>
