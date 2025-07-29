@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goat-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: goat-monitor
+  template:
+    metadata:
+      labels:
+        app: goat-monitor
+    spec:
+      containers:
+      - name: monitor
+        image: goat-monitor
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: GOAT_RPC_NODE
+          valueFrom:
+            secretKeyRef:
+              name: goat-monitor-secret
+              key: GOAT_RPC_NODE
