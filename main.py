@@ -5,21 +5,6 @@ from flask import Flask, jsonify, render_template_string
 app = Flask(__name__)
 GOAT_RPC_NODE = os.getenv("GOAT_RPC_NODE", "https://rpc.goat.network")
 
-def json_rpc(method, params=[]):
-    payload = {
-        "jsonrpc": "2.0",
-        "method": method,
-        "params": params,
-        "id": 1
-    }
-    try:
-        response = requests.post(GOAT_RPC_NODE, json=payload, timeout=5)
-        response.raise_for_status()
-        data = response.json()
-        return data.get("result", None)
-    except Exception as e:
-        return None
-
 @app.route("/status")
 def status():
     batch_payload = [
